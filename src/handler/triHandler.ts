@@ -6,8 +6,8 @@ const controller= new TriController();
 export class TriHandler {
     async getTriangles(req: Request, res: Response, next: NextFunction) {
         try{
-            const triangle = await controller.getTriangle();
-            const result = triangle.map((triangle) => {
+            const tri = await controller.getTriangle();
+            const result = tri.map((triangle) => {
                 const cos = controller.getCos(triangle.CA, triangle.hip);
                 const sin = controller.getSin(triangle.CO, triangle.hip);
                 const tan = controller.getTan(triangle.CA, triangle.CO);
