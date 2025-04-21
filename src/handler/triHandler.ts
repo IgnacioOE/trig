@@ -7,13 +7,13 @@ export class TriHandler {
     async getTriangles(req: Request, res: Response, next: NextFunction) {
         try{
             const triangle = await controller.getTriangle();
-            const result = triangle.map((tri) => {
-                const cos = controller.getCos(tri);
-                const sin = controller.getSin(tri);
-                const tan = controller.getTan(tri);
-                return {cos, sin, tan};
+            const result = triangle.map((triangle) => {
+                const cos = controller.getCos(triangle.CA, triangle.hip);
+                const sin = controller.getSin(triangle.CO, triangle.hip);
+                const tan = controller.getTan(triangle.CA, triangle.CO);
+                return {triangle, cos, sin, tan};
             });
-            res.json({triangle, result});
+            res.json(result);
         }
         catch (error) {
             next(error);

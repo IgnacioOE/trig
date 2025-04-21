@@ -4,13 +4,13 @@ export class TriController {
     async getTriangle() {
         return triangle;
     }
-    async getCos (tri: { CA: number; hip: number }) {
-        return tri.CA / tri.hip;;
+    getCos (CA: number, hip: number): number {
+        return parseFloat((CA / hip).toFixed(3));
     }
-    async getSin (tri: { CO: number; hip: number }) {
-        return tri.CO / tri.hip;
+    getSin (CO: number, hip: number): number {
+        return parseFloat((CO / hip).toFixed(3));
     }
-    async getTan (tri: { CA: number; CO: number }) {
-        return tri.CA / tri.CO;
+    getTan ( CA: number, CO: number ): number {
+        return parseFloat((CA / CO).toFixed(3));
     }
 }
